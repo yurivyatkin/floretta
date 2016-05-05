@@ -19,6 +19,10 @@
 # Ignore dotenv file
 .env
 
+# Ignore database.yml
+config/database.yml
+
 # Ignore assets
 /public/attachment
 /public/uploads
+
