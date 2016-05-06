@@ -1,24 +1,66 @@
-
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Floretta on Rails
+=================
 
 
-Welcome to your Rails project on Cloud9 IDE!
+Overview
+--------
 
-To get started, just do the following:
+This project is concerned with creating a new version of
+[Floretta](https://www.floretta.co.nz). 
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://floretta-yurivyatkin.c9users.io/).
+For the details please see
+[Wiki](https://github.com/yurivyatkin/floretta/wiki).
 
-Happy coding!
-The Cloud9 IDE team
+Using Docker
+------------
 
+[Docker](www.docker.com) can be used to create a development environment
+for this project.
 
-## Support & Documentation
+Settings for Docker use the standard postrgesql container, so make sure that
+"config/database.yml" is ready for that.
+The following minimal example will work:
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+```yaml
+default: &default 
+  adapter: postgresql 
+  encoding: unicode 
+  pool: 5 
+  timeout: 5000 
+  username: postgres 
+  host: postgres
+  port: 5432
+
+development: 
+  <<: *default 
+  database: app_development
+
+test: 
+  <<: *default 
+  database: app_test
+
+```
+
+Having installed Docker Composer, one can deploy the project locally
+with the following sequence of commands, 
+issued in the root directory of the project:
+
+```shell
+docker-compose build
+docker-compose up
+docker-compose run app rake db:create
+docker-compose run app rake db:migrate
+docker-compose run app rake shoppe:setup
+
+```
+
+Pressing `Ctrl+C` will stop the containers.
+
+It is better to run `docker-compose` commands in a separate terminal (window).
+
+To start the project again, just run `docker-compose up`. 
+
+The Docker settings for this project were influenced by 
+[Running a Rails Development Environment in Docker]
+(https://blog.codeship.com/running-rails-development-environment-docker/).
+
