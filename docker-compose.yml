@@ -11,4 +11,3 @@ postgres:
   image: postgres:9.3
   ports:
     - "5432"
-

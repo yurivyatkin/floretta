@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Whitelist Docker default IP address for WebConsole to work
+  config.web_console.whitelisted_ips = '192.168.99.1'
 end
