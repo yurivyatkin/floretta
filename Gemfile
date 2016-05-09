@@ -11,6 +11,8 @@ gem 'jquery-rails'
 # Add e-commerce functionality https://github.com/tryshoppe/shoppe
 gem 'shoppe', '~> 1.1'
 
+gem 'foundation-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
