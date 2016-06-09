@@ -63,4 +63,3 @@ To start the project again, just run `docker-compose up`.
 The Docker settings for this project were influenced by 
 [Running a Rails Development Environment in Docker]
 (https://blog.codeship.com/running-rails-development-environment-docker/).
-
