@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  color: #52411c;
+.header {
+  height: 10vh;
+}
+
+.hero {
+  background-image: url('hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+}
+
+.logotype {
+  background-image: url('logotype.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60vh;
+  position: absolute;
+  right: 10vh;
+  top: 10vh;
+  width: 40vw;
 }
